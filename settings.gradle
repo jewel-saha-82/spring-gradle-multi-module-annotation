@@ -1,0 +1,5 @@
+rootProject.name = 'spring-gradle-multi-module-annotation'
+include 'App'
+include 'App2'
+include 'common'
+

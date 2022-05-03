@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin:'application'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    group 'org.example'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+            implementation 'javax.inject:javax.inject:1'
+            implementation 'org.springframework:spring-core:3.0.5.RELEASE'
+            implementation 'org.springframework:spring-context:3.0.5.RELEASE'
+            testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+            testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    }
+
+
+    test {
+        useJUnitPlatform()
+    }
+}
