@@ -6,6 +6,6 @@
 
     <!-- bean definitions here -->
 
-    <bean id="product1" class="demo.product.Product" />
+    <bean id="intermediate" class="beans.Intermediate" />
 
 </beans>
