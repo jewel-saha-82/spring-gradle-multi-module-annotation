@@ -1,4 +1,5 @@
 dependencies {
     implementation project(":App")
     implementation project(":common")
+    implementation project(":BeanConflictResolve")
 }

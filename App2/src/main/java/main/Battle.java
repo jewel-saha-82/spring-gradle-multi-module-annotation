@@ -2,6 +2,7 @@ package main;
 
 import beans.Intermediate;
 import demo.product.Product;
+import order.Order;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,9 +11,12 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class Battle {
 
     public static void main(String[] args) {
+
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.scan("demo", "common", "config"); //very top packages
+        context.scan("demo", "common", "config", "order"); //very top packages
         context.refresh(); //This is required
+
+
         Product product = (Product) context.getBean("product");
         product.x();
         System.out.println("Annotation.............\n");
@@ -31,6 +35,9 @@ public class Battle {
         Intermediate i = (Intermediate) c1.getBean("intermediate");
         i.I();
 
+        //Bean Conflict resolve
+        Order order = (Order) context.getBean("order");
+        order.order();
 
     }
 }
