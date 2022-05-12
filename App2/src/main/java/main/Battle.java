@@ -25,6 +25,12 @@ public class Battle {
         Product p = (Product) context.getBean("p");
         product.x();
 
+        //Bean Conflict resolve
+        Order order = (Order) context.getBean("order");
+        order.order();
+
+        //--------------------------------------------------------------------------
+
         //This is not working....
 //        ApplicationContext c = new ClassPathXmlApplicationContext("spring-test.xml");
 //        Product product1 = (Product) c.getBean("product1");
@@ -35,9 +41,7 @@ public class Battle {
         Intermediate i = (Intermediate) c1.getBean("intermediate");
         i.I();
 
-        //Bean Conflict resolve
-        Order order = (Order) context.getBean("order");
-        order.order();
+
 
     }
 }
