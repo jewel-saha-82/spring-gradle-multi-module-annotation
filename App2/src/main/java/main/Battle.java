@@ -2,6 +2,8 @@ package main;
 
 import beans.Intermediate;
 import demo.product.Product;
+import demo.validator.NewValidator;
+import module.Module1;
 import order.Order;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,7 +15,7 @@ public class Battle {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.scan("demo", "common", "config", "order"); //very top packages
+        context.scan("demo", "common", "config", "order", "module"); //very top packages
         context.refresh(); //This is required
 
 
@@ -41,7 +43,13 @@ public class Battle {
         Intermediate i = (Intermediate) c1.getBean("intermediate");
         i.I();
 
+        System.out.println();
+        NewValidator newValidator = (NewValidator) context.getBean("newValidator");
+        newValidator.validator();
 
+        System.out.println();
+        Module1 module1 = (Module1) context.getBean("module1");
+        module1.module1();
 
     }
 }
